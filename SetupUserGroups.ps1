@@ -1,13 +1,14 @@
 [CmdletBinding()]
 param (
     [string]$userNames = 'Enter the user names separated by ;',
-    [SecureString]$password = 'Enter the user password',
+    [string]$password = 'Enter the user password',
     [string]$ouName = 'WVD',
     [string]$groupName = 'WVD Users'
 )
 
 #region create user name array
 [string[]]$userNameArray = $userNames.Split(';')
+[SecureString]$password = ConvertTo-SecureString -String $password -AsPlainText -Force
 #endregion
 
 #region main script
