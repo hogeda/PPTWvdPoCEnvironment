@@ -2,7 +2,7 @@
 ## 基本環境構築
 - 任意のリソースグループを作成します。
 -  次のボタンをクリックしてテンプレートよりデプロイを行います。このテンプレートではADサーバー用のVMを構築し、CustomScriptExtensionを用いてADDSの構成、ユーザー作成まで行います。  
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fhogeda%2FPPTWvdPoCEnvironment%2Fmain%2Fazuredeploy.json)
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhogeda%2FPPTWvdPoCEnvironment%2Fmain%2Fazuredeploy.json)
 - パラメータは次の例を参考に入力してください。
    
 | Parameter  | Sample    |
