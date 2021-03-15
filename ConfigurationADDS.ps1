@@ -1,12 +1,13 @@
 [CmdletBinding()]
 param (
     [string]$domainName = 'contos.com',
-    [SecureString]$safeModeAdministratorPassword = 'SafeModeAdministratorPassword'
+    [string]$safeModeAdministratorPassword = 'SafeModeAdministratorPassword'
 )
 Install-WindowsFeature -Name ('AD-Domain-Services', 'GPMC') -IncludeManagementTools -Restart
 Add-WindowsFeature RSAT-ADDS
 
 [string]$domainNetBiosName = $domainName.Split('.')[0].ToUpper()
+[SecureString]$safeModeAdministratorPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
 
 Install-ADDSForest `
     -CreateDnsDelegation:$false `
