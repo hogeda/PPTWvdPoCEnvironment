@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param (
-    [string]$domainName = 'contos.com',
+    [string]$domainName = '.com',
     [string]$safeModeAdministratorPassword = 'SafeModeAdministratorPassword'
 )
 Install-WindowsFeature -Name ('AD-Domain-Services', 'GPMC') -IncludeManagementTools -Restart
