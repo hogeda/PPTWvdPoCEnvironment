@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param (
-    [string]$domainName = 'contos.com',
+    [string]$domainName = 'lab.hogeda.com',
     [string]$safeModeAdministratorPassword = 'SafeModeAdministratorPassword',
     [string]$userNames = 'Enter the user names separated by ;',
     [string]$userPassword = 'Enter the user password',
