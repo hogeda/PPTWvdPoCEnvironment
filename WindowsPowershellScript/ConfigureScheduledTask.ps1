@@ -9,7 +9,8 @@ param (
 )
 
 # download
-$uris = @('https://raw.githubusercontent.com/hogeda/PPTWvdPoCEnvironment/main/ConfigureADDS.ps1', 'https://raw.githubusercontent.com/hogeda/PPTWvdPoCEnvironment/main/CreateUserGroup.ps1')
+$root = 'https://raw.githubusercontent.com/hogeda/PPTWvdPoCEnvironment/main/WindowsPowershellScript/'
+$uris = @("$($root)ConfigureADDS.ps1", "$($root)CreateUserGroup.ps1")
 New-Item -ItemType Directory -Path 'C:\Script'
 foreach($uri in $uris){
     Invoke-WebRequest -Uri $uri -OutFile "C:\Script\$($uri.Split('/')[-1])"
@@ -26,7 +27,7 @@ $settingsSet.Compatibility = 'Win8'
 
 # action:ConfigureADDS
 $action = New-ScheduledTaskAction `
-    -Argument "-Command 'C:\Script\ConfigureADDS.ps1' -domainName $($domainName) -safeModeAdministratorPassword $($safeModeAdministratorPassword)" `
+    -Argument "-ExecutionPolicy Unrestricted -Command 'C:\Script\ConfigureADDS.ps1' -domainName $($domainName) -safeModeAdministratorPassword $($safeModeAdministratorPassword)" `
     -Execute 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
 
 # task:ConfigureADDS
@@ -39,7 +40,7 @@ $task | Register-ScheduledTask -TaskName 'ConfigureADDS' -TaskPath '\'
 
 # action:ConfigureADDS
 $action = New-ScheduledTaskAction `
-    -Argument "-Command 'C:\Script\CreateUserGroup.ps1' -userNames $($userNames) -userPassword $($userPassword) -ouName $($ouName) -groupName $($groupName)" `
+    -Argument "-ExecutionPolicy Unrestricted -Command 'C:\Script\CreateUserGroup.ps1' -userNames $($userNames) -userPassword $($userPassword) -ouName $($ouName) -groupName $($groupName)" `
     -Execute 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
 
 # trigger:CreateUserGroup
