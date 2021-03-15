@@ -246,27 +246,6 @@
             "sku": {
                 "name": "Aligned"
             }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "apiVersion": "2015-06-15",
-            "name": "[concat(parameters('virtualMachineName'),'/ConfigureADDS')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-            ],
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "publisher": "Microsoft.Compute",
-                "type": "CustomScriptExtension",
-                "typeHandlerVersion": "1.9",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "fileUris": "[split(parameters('fileUris'), ' ')]"
-                },
-                "protectedSettings": {
-                    "commandToExecute": "[concat ('powershell -ExecutionPolicy Unrestricted -File ', variables('firstFileName'), ' ', variables('argument'))]"
-                }
-            }
         }
     ]
 }
