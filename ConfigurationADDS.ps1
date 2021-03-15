@@ -7,7 +7,7 @@ Install-WindowsFeature -Name ('AD-Domain-Services', 'GPMC') -IncludeManagementTo
 Add-WindowsFeature RSAT-ADDS
 
 [string]$domainNetBiosName = $domainName.Split('.')[0].ToUpper()
-[SecureString]$safeModeAdministratorPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+[SecureString]$safeModeAdministratorPassword = ConvertTo-SecureString -String $safeModeAdministratorPassword -AsPlainText -Force
 
 Install-ADDSForest `
     -CreateDnsDelegation:$false `
