@@ -16,6 +16,7 @@
 
 ## ADサーバーセットアップ
 - Powershellスクリプトを実行して、ADサーバーの役割機能追加、ならびにOU、ユーザー作成を実施します。
+
 | domainName | lab.hogeda.com |
 | safeModeAdministratorPassword | WVDPoC#123098! | 
 | userNames | kyohei.hogeda;kyohei.fugada;kyohei.piyoda |
