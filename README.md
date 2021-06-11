@@ -1,8 +1,9 @@
 # Windows Virtual Desktop 無償PoC環境構築
 ## 基本環境構築
 - 任意のリソースグループを作成します。
--  次のボタンをクリックしてテンプレートよりデプロイを行います。このテンプレートではADサーバー用のVMを構築し、CustomScriptExtensionを用いてADDSの構成、ユーザー作成まで行います。  
+-  次のボタンをクリックしてテンプレートよりデプロイを行います。このテンプレートではADサーバー用のVMを構築します。
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhogeda%2FPPTWvdPoCEnvironment%2Fmain%2Fazuredeploy.json)
+- デプロイ終了後にはVMに接続、スクリプトを実行してAD構築、ユーザー作成を実施してください。
 - パラメータは次の例を参考に入力してください。
    
 | Parameter  | Sample    |
@@ -13,12 +14,6 @@
 | virtualMachineName | adds01 |
 | adminUsername | pptadmin |
 | adminPassword | WVDPoC#123098! |
-| fileUris | https://raw.githubusercontent.com/hogeda/PPTWvdPoCEnvironment/main/WindowsPowershellScript/ConfigureScheduledTask.ps1 |
-| domainName | lab.hogeda.com |
-| safeModeAdministratorPassword | WVDPoC#123098! | 
-| userNames | kyohei.hogeda;kyohei.fugada;kyohei.piyoda |
-| userPassword | WVDPoC#123098! |
-| ouName | WVD |
-| groupName | WVD Users |
 
-1. 
+## WVD環境構築
+準備中
