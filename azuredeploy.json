@@ -33,10 +33,6 @@
         "adminPassword": {
             "type": "securestring"
         },
-        "fileUris": {
-            "type": "string",
-            "defaultValue": "https://raw.githubusercontent.com/hogeda/PPTWvdPoCEnvironment/main/WindowsPowershellScript/ConfigureScheduledTask.ps1"
-        },
         "domainName": {
             "type": "string",
             "defaultValue": "lab.hogeda.com"
@@ -49,24 +45,11 @@
         },
         "userPassword": {
             "type": "securestring"
-        },
-        "ouName": {
-            "type": "string",
-            "defaultValue": "WVD"
-        },
-        "groupName": {
-            "type": "string",
-            "defaultValue": "WVD Users"
         }
     },
     "variables": {
         "vnetId": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetwork_name'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetNameOfAD'))]",
-        "UriFileNamePieces": "[split(parameters('fileUris'), '/')]",
-        "firstFileNameString": "[variables('UriFileNamePieces')[sub(length(variables('UriFileNamePieces')), 1)]]",
-        "firstFileNameBreakString": "[split(variables('firstFileNameString'), '?')]",
-        "firstFileName": "[variables('firstFileNameBreakString')[0]]",
-        "argument": "[concat('-domainName ', parameters('domainName'), ' -safeModeAdministratorPassword ', parameters('safeModeAdministratorPassword'), ' -userNames ', parameters('userNames'), ' -userPassword ', parameters('userPassword'), ' -ouName ', parameters('ouName'), ' -groupName ', parameters('groupName'))]"
     },
     "resources": [
         {
@@ -80,11 +63,11 @@
                         "10.0.0.0/16"
                     ]
                 },
-                // "dhcpOptions": {
-                //    "dnsServers": [
-                //        "10.0.0.4"
-                //    ]
-                // },
+                 "dhcpOptions": {
+                    "dnsServers": [
+                        "10.0.0.4"
+                    ]
+                 },
                 "enableDdosProtection": false
             }
         },
